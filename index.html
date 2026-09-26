@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DPA Consultancy — Development, Planning &amp; Action</title>
   <meta name="description" content="DPA Consultancy is a Suriname-founded business consultancy serving startups, turnarounds and cross-border expansion across CARICOM, South America and the United States. Servizio Senza Fine.">
-  <meta name="theme-color" content="#0a1224">
+  <meta name="theme-color" content="#0d1a22">
   <meta property="og:type" content="website">
   <meta property="og:title" content="DPA Consultancy — Development, Planning &amp; Action">
   <meta property="og:description" content="Strategy, operations, technology and cross-border expansion for businesses across CARICOM, South America and the US. Servizio Senza Fine.">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:url" content="https://dcramere.github.io/dpa-consultancy/">
+  <meta property="og:image" content="https://dcramere.github.io/dpa-consultancy/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -22,7 +26,7 @@
   <header class="nav" id="nav">
     <div class="container nav__inner">
       <a href="#top" class="brand" aria-label="DPA Consultancy home">
-        <span class="brand__mark">D</span>
+        <img src="assets/logo-mark.png" alt="" class="brand__mark" width="33" height="40">
         <span class="brand__text">DPA <span>Consultancy</span></span>
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary">
@@ -255,6 +259,10 @@
           <p class="section__lead reveal">
             Tell us about your business and what you want to achieve. Our team will contact you to schedule your initial advisory call.
           </p>
+          <a class="contact__email reveal" href="mailto:dpaconsultancy.tjon@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+            dpaconsultancy.tjon@gmail.com
+          </a>
           <ol class="steps reveal">
             <li><span>1</span><div><strong>Submit your request</strong>Share your goals and preferred timing.</div></li>
             <li><span>2</span><div><strong>Initial advisory call</strong>A focused conversation about your situation and goals.</div></li>
@@ -263,7 +271,7 @@
         </div>
 
         <form class="form reveal" id="bookingForm" novalidate
-              data-endpoint="">
+              data-endpoint="https://formsubmit.co/ajax/dpaconsultancy.tjon@gmail.com">
           <div class="form__row">
             <label class="field">
               <span>Full name <em>*</em></span>
@@ -348,7 +356,7 @@
           </label>
 
           <!-- honeypot -->
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
 
           <button type="submit" class="btn btn--gold btn--lg btn--block" id="submitBtn">
             Request Consultation
@@ -365,9 +373,8 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <a href="#top" class="brand">
-          <span class="brand__mark">D</span>
-          <span class="brand__text">DPA <span>Consultancy</span></span>
+        <a href="#top" class="brand" aria-label="DPA Consultancy home">
+          <img src="assets/logo-full.png" alt="DPA Consultancy, servizio senza fine" class="brand__logo" width="192" height="96" loading="lazy">
         </a>
         <p>Development, Planning &amp; Action.<br><em>Servizio Senza Fine.</em></p>
       </div>
@@ -385,7 +392,8 @@
           <a href="#services">People &amp; Operations</a>
         </div>
         <div>
-          <h4>Offices</h4>
+          <h4>Contact</h4>
+          <a href="mailto:dpaconsultancy.tjon@gmail.com">dpaconsultancy.tjon@gmail.com</a>
           <p>Paramaribo, Suriname</p>
           <p>Serving CARICOM, South America &amp; the US</p>
         </div>

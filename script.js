@@ -82,20 +82,17 @@
       setStatus('Please complete the highlighted fields.', 'error');
       return;
     }
-    if (form._gotcha.value) return; // bot
+    if (form._honey.value) return; // bot
 
     const endpoint = form.dataset.endpoint;
-    if (!endpoint) {
-      setStatus('Online booking is not yet connected. Please try again later.', 'error');
-      console.warn('[DPA] Set data-endpoint on #bookingForm to a Formspree (or compatible) URL.');
-      return;
-    }
-
     const data = new FormData(form);
     const interests = data.getAll('interests');
     data.delete('interests');
     data.set('interests', interests.length ? interests.join(', ') : 'Not specified');
     data.set('_subject', `Consultation request: ${data.get('company')}`);
+    data.set('_replyto', data.get('email'));
+    data.set('_template', 'table');
+    data.set('_captcha', 'false');
 
     submitBtn.disabled = true;
     const label = submitBtn.firstChild.textContent;
@@ -103,12 +100,13 @@
 
     try {
       const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || String(json.success) === 'false') throw new Error(json.message || `HTTP ${res.status}`);
       form.reset();
       setStatus('Thank you. Your request has been received and our team will be in touch shortly to schedule your consultation.', 'success');
     } catch (err) {
       console.error('[DPA] Booking submit failed:', err);
-      setStatus('Something went wrong sending your request. Please try again in a moment.', 'error');
+      setStatus('Something went wrong sending your request. Please try again, or email us at dpaconsultancy.tjon@gmail.com.', 'error');
     } finally {
       submitBtn.disabled = false;
       submitBtn.firstChild.textContent = label;
